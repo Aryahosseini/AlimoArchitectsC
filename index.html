@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ALIMO ARCHITECTS — Architecture &amp; Design, Los Angeles</title>
+<meta name="description" content="ALIMO ARCHITECTS is a Los Angeles architecture firm designing considered residential, multifamily and commercial spaces — from custom homes and ADUs to mixed-use developments." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100F0C;          /* warm near-black */
+    --bg-2:#15140F;
+    --surface:#1B1A14;
+    --surface-2:#211F18;
+    --text:#ECE7DB;        /* warm bone */
+    --muted:#9C9484;
+    --line:rgba(236,231,219,.13);
+    --line-soft:rgba(236,231,219,.07);
+    --accent:#C5A977;      /* warm brass / sand */
+    --accent-2:#E2CDA1;
+    --maxw:1300px;
+    --pad:clamp(20px,5vw,76px);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#15140F}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+  .serif{font-family:'Marcellus',Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:.01em}
+  .label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--accent)}
+
+  /* film grain + vignette overlays */
+  .grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:200;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 0 12px rgba(197,169,119,.6)}
+
+  /* ---------- NAV ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;
+    transition:background .5s var(--ease),box-shadow .5s var(--ease),padding .5s var(--ease);padding:24px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand img{height:30px;width:auto}
+  .brand .name{font-family:'Marcellus',serif;font-size:1.05rem;letter-spacing:.3em;font-weight:500;text-transform:uppercase;color:#fff}
+  nav.main{display:flex;align-items:center;gap:34px}
+  nav.main a{font-size:.82rem;letter-spacing:.05em;color:rgba(236,231,219,.82);position:relative}
+  nav.main a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--accent);transition:width .35s var(--ease)}
+  nav.main a:hover{color:#fff}nav.main a:hover::after{width:100%}
+  .nav-cta{border:1px solid var(--line);padding:9px 22px;border-radius:40px;color:#fff !important;transition:.4s var(--ease)}
+  .nav-cta::after{display:none}
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent);color:#15140F !important}
+  header.scrolled{background:rgba(16,15,12,.72);backdrop-filter:blur(16px) saturate(1.2);padding:14px 0;box-shadow:0 1px 0 var(--line-soft)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+  .burger span{width:26px;height:1.5px;background:#fff;transition:.35s var(--ease)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden;background:#0c0b09}
+  .hero-img{position:absolute;inset:-8% 0 0 0;background:#0c0b09 center/cover no-repeat;
+    clip-path:inset(0 0 0 0);will-change:transform;
+    animation:heroReveal 1.6s var(--ease) both,heroZoom 14s var(--ease) .2s both}
+  @keyframes heroReveal{from{clip-path:inset(14% 14% 14% 14%);opacity:.4}to{clip-path:inset(0 0 0 0);opacity:1}}
+  @keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(8,8,6,.5) 0%,rgba(8,8,6,.08) 30%,rgba(8,8,6,.35) 64%,rgba(8,8,6,.92) 100%)}
+  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(44px,7vh,92px)}
+  .hero .label{color:var(--accent-2)}
+  .hero h1{color:#fff;font-size:clamp(2.7rem,7vw,6rem);max-width:16ch;margin:.3em 0 .55em;font-weight:300}
+  .hero h1 .ln{display:block;overflow:hidden}
+  .hero h1 .ln > span{display:block;transform:translateY(110%);animation:lineUp 1s var(--ease) forwards}
+  .hero h1 .ln:nth-child(1) > span{animation-delay:.35s}
+  .hero h1 .ln:nth-child(2) > span{animation-delay:.5s}
+  .hero h1 .ln:nth-child(3) > span{animation-delay:.65s}
+  @keyframes lineUp{to{transform:none}}
+  .hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .hero p.sub{color:rgba(236,231,219,.86);max-width:34ch;font-size:1.02rem;font-weight:300;
+    opacity:0;animation:fadeUp 1s var(--ease) .9s forwards}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp 1s var(--ease) 1.05s forwards}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.08em;
+    padding:14px 28px;border-radius:44px;font-weight:500;transition:.4s var(--ease);text-transform:uppercase;will-change:transform}
+  .btn-solid{background:var(--accent);color:#15140F}
+  .btn-solid:hover{background:var(--accent-2)}
+  .btn-outline{color:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+  .btn-outline:hover{background:#fff;color:#15140F;box-shadow:inset 0 0 0 1px #fff}
+  .btn-ghost{color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+  .btn-ghost:hover{background:var(--accent);color:#15140F;box-shadow:inset 0 0 0 1px var(--accent)}
+
+  .scrollcue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2;color:rgba(236,231,219,.6);
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scrollcue i{width:1px;height:42px;background:rgba(236,231,219,.4);display:block;animation:cue 2.4s var(--ease) infinite}
+  @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .pad-y{padding-block:clamp(76px,11vw,158px)}
+  .eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--accent)}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+  /* ---------- INTRO ---------- */
+  .intro{background:var(--bg-2)}
+  .intro-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(36px,7vw,110px);align-items:center}
+  .intro h2{font-size:clamp(2rem,3.6vw,3.2rem);max-width:18ch;font-weight:300}
+  .intro h2 em{font-style:italic;color:var(--accent-2)}
+  .intro .lede{font-size:1.06rem;color:var(--muted);max-width:52ch;font-weight:300}
+  .intro .lede + .lede{margin-top:1.1em}
+  .stats{display:flex;gap:clamp(28px,5vw,60px);margin-top:46px;flex-wrap:wrap}
+  .stat .n{font-family:'Marcellus',serif;font-size:2.9rem;line-height:1;font-weight:400;color:#fff}
+  .stat .t{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+  /* ---------- FEATURED ---------- */
+  .feature{display:grid;grid-template-columns:1.5fr 1fr;align-items:stretch;min-height:min(80vh,740px)}
+  .feature-media{position:relative;overflow:hidden;background:#0c0b09}
+  .feature-media img{width:100%;height:118%;object-fit:cover;will-change:transform}  /* extra height for parallax */
+  .feature-tag{position:absolute;top:24px;left:24px;z-index:2;background:rgba(16,15,12,.7);backdrop-filter:blur(8px);
+    border:1px solid var(--line);color:var(--accent-2);padding:8px 16px;border-radius:30px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+  .feature-body{background:var(--surface);display:flex;flex-direction:column;justify-content:center;padding:clamp(34px,5vw,76px)}
+  .feature-body h3{font-size:clamp(1.9rem,3vw,2.9rem);margin:.35em 0 .5em;color:#fff;font-weight:300}
+  .feature-body p{color:var(--muted);font-weight:300;max-width:42ch}
+  .feature-meta{display:flex;gap:34px;margin:34px 0 38px;flex-wrap:wrap}
+  .feature-meta .k{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block}
+  .feature-meta .v{font-family:'Marcellus',serif;font-size:1.3rem;color:var(--text);display:block}
+  .link-arrow{display:inline-flex;align-items:center;gap:12px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:500;align-self:flex-start;color:var(--accent-2);border-bottom:1px solid var(--line);padding-bottom:6px;transition:gap .35s var(--ease),border-color .35s}
+  .link-arrow:hover{gap:20px;border-color:var(--accent)}
+
+  /* ---------- WORK GRID ---------- */
+  .work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+  .work-head h2{font-size:clamp(2rem,3.8vw,3.3rem);font-weight:300}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(14px,1.6vw,24px)}
+  .card{position:relative;overflow:hidden;display:block;background:#0c0b09;border:1px solid var(--line-soft)}
+  .card .ph{position:absolute;inset:0;overflow:hidden}
+  .card img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease)}
+  .card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(8,8,6,.82));z-index:1}
+  .card:hover img{transform:scale(1.07)}
+  .card-cap{position:absolute;left:0;bottom:0;z-index:2;padding:26px 28px}
+  .card-cap .label{color:var(--accent-2)}
+  .card-cap h4{font-family:'Marcellus',serif;font-size:1.55rem;font-weight:400;margin-top:6px;color:#fff;
+    transform:translateY(6px);opacity:.92;transition:.45s var(--ease)}
+  .card:hover .card-cap h4{transform:none;opacity:1}
+  .c-tall{grid-column:span 5;aspect-ratio:4/5}
+  .c-wide{grid-column:span 7;aspect-ratio:7/5}
+  .c-third{grid-column:span 4;aspect-ratio:3/4}
+
+  /* ---------- CAPABILITIES ---------- */
+  .caps{background:var(--bg-2)}
+  .caps-head{max-width:60ch;margin-bottom:50px}
+  .caps-head h2{font-size:clamp(2rem,3.6vw,3.2rem);margin-top:.3em;font-weight:300}
+  .caps-list{border-top:1px solid var(--line)}
+  .cap{display:grid;grid-template-columns:48px 1.1fr 2fr auto;gap:clamp(14px,3vw,48px);align-items:center;
+    padding:30px 4px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;
+    transition:padding .45s var(--ease)}
+  .cap::before{content:"";position:absolute;inset:0;background:var(--surface);transform:translateY(101%);transition:transform .5s var(--ease);z-index:0}
+  .cap:hover::before{transform:none}
+  .cap > *{position:relative;z-index:1}
+  .cap:hover{padding-inline:26px}
+  .cap .num{font-family:'Marcellus',serif;font-size:1.1rem;color:var(--accent)}
+  .cap h3{font-size:1.35rem;font-weight:400;font-family:'Marcellus',serif;color:#fff}
+  .cap p{font-size:.93rem;color:var(--muted);font-weight:300}
+  .cap .go{font-size:1.4rem;color:var(--accent);opacity:0;transform:translateX(-10px);transition:.45s var(--ease)}
+  .cap:hover .go{opacity:1;transform:none}
+
+  /* ---------- APPROACH ---------- */
+  .approach{position:relative;overflow:hidden}
+  .approach .bg{position:absolute;inset:-12% 0 0 0;background:#0c0b09 center/cover no-repeat;will-change:transform}
+  .approach::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,7,.86),rgba(10,9,7,.5))}
+  .approach .wrap{position:relative;z-index:2}
+  .approach-inner{max-width:66ch}
+  .approach .big{font-size:clamp(1.9rem,3.6vw,3.1rem);font-weight:300;line-height:1.2;margin:.4em 0 1em;color:#fff}
+  .approach .big em{font-style:italic;color:var(--accent-2)}
+
+  /* ---------- INSIGHTS ---------- */
+  .ins-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+  .ins-head h2{font-size:clamp(2rem,3.6vw,3.1rem);font-weight:300}
+  .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,40px)}
+  .post{display:block;border-top:1px solid var(--line);padding-top:24px;transition:border-color .4s}
+  .post:hover{border-color:var(--accent)}
+  .post .meta{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .post h3{font-family:'Marcellus',serif;font-size:1.55rem;font-weight:400;line-height:1.22;margin-bottom:18px;color:#fff;transition:color .4s}
+  .post .rd{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;gap:8px;transition:gap .35s var(--ease),color .35s}
+  .post:hover .rd{gap:16px;color:var(--accent-2)}
+
+  /* ---------- CTA ---------- */
+  .cta{background:radial-gradient(120% 120% at 50% 0%,var(--surface) 0%,var(--bg) 60%);text-align:center}
+  .cta h2{font-size:clamp(2.3rem,5.4vw,4.4rem);max-width:18ch;margin:0 auto .3em;color:#fff;font-weight:300}
+  .cta h2 em{font-style:italic;color:var(--accent-2)}
+  .cta p{color:var(--muted);max-width:46ch;margin:0 auto 40px;font-weight:300}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0B0A07;color:var(--muted);padding-block:64px 36px;border-top:1px solid var(--line-soft)}
+  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .foot-brand img{height:26px}
+  .foot-brand span{font-family:'Marcellus',serif;font-size:1.25rem;letter-spacing:.26em;text-transform:uppercase;color:#fff}
+  .foot-brand-col p{max-width:34ch;font-size:.9rem;font-weight:300}
+  .foot-col h5{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .foot-col a{display:block;font-size:.92rem;margin-bottom:11px;color:rgba(236,231,219,.78);transition:color .3s}
+  .foot-col a:hover{color:var(--accent-2)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:.78rem}
+  .socials{display:flex;gap:22px}
+  .socials a:hover{color:var(--accent-2)}
+
+  /* ---------- MOBILE MENU ---------- */
+  .m-menu{position:fixed;inset:0;z-index:99;background:var(--bg);
+    transform:translateY(-100%);transition:transform .6s var(--ease);
+    display:flex;flex-direction:column;justify-content:center;padding:var(--pad)}
+  .m-menu.open{transform:none}
+  .m-menu a{font-family:'Marcellus',serif;font-size:2.3rem;padding:14px 0;border-bottom:1px solid var(--line);color:#fff}
+  .m-menu .m-foot{margin-top:40px;display:flex;gap:24px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+
+  @media(max-width:1024px){
+    .feature{grid-template-columns:1fr}.feature-media{aspect-ratio:16/10}
+    .intro-grid{grid-template-columns:1fr;gap:36px}
+    .cap{grid-template-columns:36px 1fr;row-gap:6px}.cap p{grid-column:2}.cap .go{display:none}
+    .foot-top{grid-template-columns:1fr 1fr}.foot-brand-col{grid-column:1/-1}
+  }
+  @media(max-width:860px){
+    nav.main{display:none}.burger{display:flex}
+    .ins-grid{grid-template-columns:1fr;gap:0}.post{margin-top:26px}
+  }
+  @media(max-width:640px){
+    .grid{grid-template-columns:1fr}
+    .c-tall,.c-wide,.c-third{grid-column:1/-1;aspect-ratio:5/4}
+    .hero h1{font-size:clamp(2.5rem,9.5vw,3.4rem)}
+    .hero-actions{width:100%}.btn{flex:1;justify-content:center}
+    .foot-top{grid-template-columns:1fr}.feature-meta{gap:24px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;transition-duration:.001s !important}
+    .reveal{opacity:1;transform:none}
+    .hero-img{animation:none;inset:0}.hero h1 .ln>span{transform:none}
+    .hero p.sub,.hero-actions{opacity:1}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="progress" id="prog"></div>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Alimo Architects home">
+      <img src="assets/logo.svg" alt="Alimo Architects logo">
+      <span class="name">Alimo Architects</span>
+    </a>
+    <nav class="main">
+      <a href="#work">Projects</a>
+      <a href="#capabilities">Services</a>
+      <a href="#about">About</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="m-menu" id="mMenu">
+  <a href="#work" data-close>Projects</a>
+  <a href="#capabilities" data-close>Services</a>
+  <a href="#about" data-close>About</a>
+  <a href="#insights" data-close>Insights</a>
+  <a href="#contact" data-close>Contact</a>
+  <div class="m-foot">
+    <a href="https://www.instagram.com/alimo_architects_inc/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/company/alimo-architects-inc/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img" id="heroImg" data-parallax="0.18" style="background-image:url('assets/hero.jpg')"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <p class="label" style="opacity:0;animation:fadeUp 1s var(--ease) .25s forwards">Alimo Architects — Los Angeles, California</p>
+      <h1 class="serif">
+        <span class="ln"><span>Considered architecture</span></span>
+        <span class="ln"><span>for the way Los Angeles</span></span>
+        <span class="ln"><span>lives.</span></span>
+      </h1>
+      <div class="hero-row">
+        <p class="sub">A Los Angeles studio shaping homes, neighborhoods and commercial spaces with clarity, craft and a deep respect for site.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-solid mag">View Projects</a>
+          <a href="#contact" class="btn btn-outline mag">Start a Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<i></i></div>
+</section>
+
+<!-- INTRO -->
+<section class="intro pad-y" id="about">
+  <div class="wrap intro-grid">
+    <div class="reveal">
+      <div class="eyebrow"><span class="label">The Studio</span></div>
+      <h2 class="serif">Design with <em>purpose</em>, executed with <em>precision</em>.</h2>
+    </div>
+    <div class="reveal d1">
+      <p class="lede">Alimo Architects is a Los Angeles practice working across luxury residences, multifamily housing and commercial developments. We treat every project — from a single home to a mixed-use building — with the same focus on quality, sustainability and how a space is actually lived in.</p>
+      <p class="lede">From first consultation to final permit, we keep the process clear and collaborative, translating each client's vision into architecture that is environmentally conscious and built to last.</p>
+      <div class="stats">
+        <div class="stat"><div class="n serif" data-count="10" data-suffix="+">0</div><div class="t">Project Types</div></div>
+        <div class="stat"><div class="n serif">LA</div><div class="t">Based &amp; Licensed</div></div>
+        <div class="stat"><div class="n serif">End&#8209;to&#8209;End</div><div class="t">Design &amp; Permitting</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="pad-y" style="padding-bottom:0" id="work">
+  <div class="wrap">
+    <div class="work-head reveal">
+      <div>
+        <div class="eyebrow"><span class="label">Selected Work</span></div>
+        <h2 class="serif">A portfolio rooted in place.</h2>
+      </div>
+      <a href="https://www.alimoarchitects.com/projects" class="btn btn-ghost mag">All Projects</a>
+    </div>
+  </div>
+  <div class="feature reveal">
+    <div class="feature-media">
+      <span class="feature-tag">Featured Residence</span>
+      <img src="assets/featured.jpg" alt="Contemporary organic custom home in Beverly Hills" data-parallax="0.08" loading="lazy">
+    </div>
+    <div class="feature-body">
+      <p class="label">Beverly Hills, California</p>
+      <h3 class="serif">Contemporary Organic Residence</h3>
+      <p>A 6,000&#8202;sq&#8202;ft custom home that settles into the hillside, following the natural contours of the land. Natural stone, textured concrete and sustainably harvested wood frame a modern, nature-led interpretation of luxury living.</p>
+      <div class="feature-meta">
+        <div><span class="k">Type</span><span class="v serif">Custom Home</span></div>
+        <div><span class="k">Scope</span><span class="v serif">6,000 sq ft</span></div>
+        <div><span class="k">Focus</span><span class="v serif">Organic Modern</span></div>
+      </div>
+      <a href="https://www.alimoarchitects.com/projects" class="link-arrow">View Project &nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK GRID -->
+<section class="pad-y">
+  <div class="wrap">
+    <div class="grid">
+      <a class="card c-wide reveal" href="https://www.alimoarchitects.com/projects">
+        <div class="ph"><img src="assets/residential.jpeg" alt="Modern home with pool at dusk" loading="lazy"></div>
+        <div class="card-cap"><span class="label">Residential</span><h4>Custom Homes &amp; Additions</h4></div>
+      </a>
+      <a class="card c-tall reveal d1" href="https://www.alimoarchitects.com/projects">
+        <div class="ph"><img src="assets/remodels.jpeg" alt="Interior remodel" loading="lazy"></div>
+        <div class="card-cap"><span class="label">Remodels</span><h4>Interior Transformations</h4></div>
+      </a>
+      <a class="card c-third reveal" href="https://www.alimoarchitects.com/projects">
+        <div class="ph"><img src="assets/adu.jpg" alt="Accessory dwelling unit" loading="lazy"></div>
+        <div class="card-cap"><span class="label">ADU &amp; SB9</span><h4>Backyard Dwellings</h4></div>
+      </a>
+      <a class="card c-third reveal d1" href="https://www.alimoarchitects.com/projects">
+        <div class="ph"><img src="assets/multifamily.jpg" alt="Multifamily residential building" loading="lazy"></div>
+        <div class="card-cap"><span class="label">Multifamily</span><h4>Apartment &amp; Mixed-Use</h4></div>
+      </a>
+      <a class="card c-third reveal d2" href="https://www.alimoarchitects.com/projects">
+        <div class="ph"><img src="assets/commercial.jpeg" alt="Commercial building" loading="lazy"></div>
+        <div class="card-cap"><span class="label">Commercial</span><h4>Retail &amp; Hospitality</h4></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="caps pad-y" id="capabilities">
+  <div class="wrap">
+    <div class="caps-head reveal">
+      <div class="eyebrow"><span class="label">Services</span></div>
+      <h2 class="serif">From a single dwelling to a city block.</h2>
+    </div>
+    <div class="caps-list">
+      <a class="cap reveal" href="https://www.alimoarchitects.com/projects">
+        <span class="num serif">01</span><h3 class="serif">Residential &amp; Custom Homes</h3>
+        <p>Ground-up custom homes, remodels and additions designed around how you live.</p><span class="go">→</span>
+      </a>
+      <a class="cap reveal" href="https://www.alimoarchitects.com/projects">
+        <span class="num serif">02</span><h3 class="serif">ADU, JADU &amp; SB9</h3>
+        <p>Detached and conversion units, lot splits and entitlement packages — fully permitted.</p><span class="go">→</span>
+      </a>
+      <a class="cap reveal" href="https://www.alimoarchitects.com/projects">
+        <span class="num serif">03</span><h3 class="serif">Multifamily &amp; Mixed-Use</h3>
+        <p>Apartment buildings and TOC-eligible developments, from affordable to luxury.</p><span class="go">→</span>
+      </a>
+      <a class="cap reveal" href="https://www.alimoarchitects.com/projects">
+        <span class="num serif">04</span><h3 class="serif">Commercial &amp; Hospitality</h3>
+        <p>Retail, office, medical and tenant improvements that reflect your brand.</p><span class="go">→</span>
+      </a>
+      <a class="cap reveal" href="https://www.alimoarchitects.com/projects">
+        <span class="num serif">05</span><h3 class="serif">Scan to BIM</h3>
+        <p>Laser scanning and AI-powered 3D models for accurate as-built documentation.</p><span class="go">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach pad-y">
+  <div class="bg" data-parallax="0.12" style="background-image:url('assets/approach.jpg')"></div>
+  <div class="wrap">
+    <div class="approach-inner reveal">
+      <div class="eyebrow"><span class="label">Our Approach</span></div>
+      <p class="big serif">We believe the architectural process should feel <em>collaborative, transparent and calm</em> — from the first consultation to the final walkthrough.</p>
+      <a href="#about" class="btn btn-outline mag">More About the Studio</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="pad-y" id="insights">
+  <div class="wrap">
+    <div class="ins-head reveal">
+      <div>
+        <div class="eyebrow"><span class="label">Insights</span></div>
+        <h2 class="serif">Notes on building in California.</h2>
+      </div>
+      <a href="https://www.alimoarchitects.com/blog" class="btn btn-ghost mag">All Insights</a>
+    </div>
+    <div class="ins-grid">
+      <a class="post reveal" href="https://www.alimoarchitects.com/post/new-adu-regulations-for-multifamily-properties-what-you-need-to-know-unlocking-new-housing-potentia">
+        <div class="meta">ADU · Regulation</div><h3 class="serif">New ADU Regulations for Multifamily Properties</h3><span class="rd">Read &nbsp;→</span>
+      </a>
+      <a class="post reveal d1" href="https://www.alimoarchitects.com/post/new-building-regulations-for-wildfire-recovery-what-you-need-to-know">
+        <div class="meta">Policy · Wildfire</div><h3 class="serif">New Building Regulations for Wildfire Recovery</h3><span class="rd">Read &nbsp;→</span>
+      </a>
+      <a class="post reveal d2" href="https://www.alimoarchitects.com/post/recover-and-rebuild-after-the-palisades-wildfire-with-alimo-architects">
+        <div class="meta">Rebuild · Community</div><h3 class="serif">Recover &amp; Rebuild After the Palisades Wildfire</h3><span class="rd">Read &nbsp;→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta pad-y" id="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center"><span class="label">Start a Project</span></div>
+    <h2 class="serif">Let's design something <em>enduring</em>.</h2>
+    <p>Tell us about your site, your goals and your timeline. We'll guide you from concept through permitting and construction.</p>
+    <a href="https://www.alimoarchitects.com/contact" class="btn btn-solid mag">Contact the Studio</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand-col">
+        <div class="foot-brand"><img src="assets/logo.svg" alt="Alimo Architects logo"><span>Alimo Architects</span></div>
+        <p>A Los Angeles architecture studio designing residential, multifamily and commercial spaces with purpose and precision.</p>
+      </div>
+      <div class="foot-col"><h5>Explore</h5>
+        <a href="#work">Projects</a><a href="#capabilities">Services</a><a href="#about">About</a><a href="#insights">Insights</a>
+      </div>
+      <div class="foot-col"><h5>Connect</h5>
+        <a href="https://www.alimoarchitects.com/contact">Contact</a>
+        <a href="https://www.instagram.com/alimo_architects_inc/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/alimo-architects-inc/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="foot-col"><h5>Studio</h5>
+        <p style="font-size:.9rem;font-weight:300">Los Angeles, California<br>By appointment</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 Alimo Architects Inc. All rights reserved.</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/alimo_architects_inc/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/alimo-architects-inc/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hdr=document.getElementById('hdr'), prog=document.getElementById('prog');
+  const parallax=[...document.querySelectorAll('[data-parallax]')];
+
+  function onScroll(){
+    const y=window.scrollY;
+    hdr.classList.toggle('scrolled',y>60);
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(y/h)*100:0)+'%';
+  }
+  // parallax with rAF
+  let ticking=false;
+  function frame(){
+    parallax.forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.bottom>0 && r.top<window.innerHeight){
+        const speed=parseFloat(el.dataset.parallax)||.1;
+        const offset=(r.top+r.height/2 - window.innerHeight/2)*-speed;
+        el.style.transform=`translate3d(0,${offset.toFixed(1)}px,0)`;
+      }
+    });
+    ticking=false;
+  }
+  window.addEventListener('scroll',()=>{onScroll();if(!ticking){requestAnimationFrame(frame);ticking=true;}},{passive:true});
+  onScroll();frame();
+
+  // mobile menu
+  const burger=document.getElementById('burger'),mMenu=document.getElementById('mMenu');
+  burger.addEventListener('click',()=>{mMenu.classList.toggle('open');document.body.style.overflow=mMenu.classList.contains('open')?'hidden':''});
+  mMenu.querySelectorAll('[data-close]').forEach(a=>a.addEventListener('click',()=>{mMenu.classList.remove('open');document.body.style.overflow=''}));
+
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // count-up
+  const counters=document.querySelectorAll('[data-count]');
+  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{
+    if(!e.isIntersecting)return; cio.unobserve(e.target);
+    const el=e.target, target=+el.dataset.count, suf=el.dataset.suffix||''; let n=0;
+    const step=()=>{n+=Math.max(1,Math.ceil(target/28));if(n>=target)n=target;el.textContent=n+suf;if(n<target)requestAnimationFrame(step);};
+    step();
+  })},{threshold:.6});
+  counters.forEach(c=>cio.observe(c));
+
+  // magnetic buttons (desktop only)
+  if(window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.mag').forEach(btn=>{
+      btn.addEventListener('mousemove',e=>{
+        const r=btn.getBoundingClientRect();
+        const mx=e.clientX-r.left-r.width/2, my=e.clientY-r.top-r.height/2;
+        btn.style.transform=`translate(${mx*0.25}px,${my*0.35}px)`;
+      });
+      btn.addEventListener('mouseleave',()=>btn.style.transform='');
+    });
+  }
+</script>
+</body>
+</html>
