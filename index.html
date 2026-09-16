@@ -4,7 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ALIMO ARCHITECTS — Architecture &amp; Design, Los Angeles</title>
-<meta name="description" content="ALIMO ARCHITECTS is a Los Angeles architecture firm designing considered residential, multifamily and commercial spaces — from custom homes and ADUs to mixed-use developments." />
+<meta name="description" content="ALIMO ARCHITECTS is a Los Angeles architecture firm designing residential, multifamily and commercial spaces — plus cannabis facility architecture and LADBS permitting for DCR license renewal (LIC-4025)." />
+<meta name="keywords" content="Los Angeles architect, cannabis architect Los Angeles, cannabis facility permitting, dispensary architect, DCR license renewal, LIC-4025-FORM, LADBS plan check, Clearance Summary Worksheet, cannabis Operating Permit, tenant improvement, ADA accessibility, ADU architect, custom homes" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Cannabis Facility Architecture & Permitting",
+  "serviceType":"Architectural design and building permit services for cannabis businesses",
+  "provider":{"@type":"ProfessionalService","name":"Alimo Architects Inc.","url":"https://www.alimoarchitects.com","address":{"@type":"PostalAddress","addressLocality":"Los Angeles","addressRegion":"CA","addressCountry":"US"}},
+  "areaServed":{"@type":"City","name":"Los Angeles"},
+  "description":"Licensed California architect services for Los Angeles cannabis licensees: architect retention for the DCR LIC-4025 renewal attestation, existing facility assessment, LADBS plan check, accessibility and building-code compliance, and engineering and agency coordination through the DCR Operating Permit."
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -176,6 +188,54 @@
   .cap .go{font-size:1.4rem;color:var(--accent);opacity:0;transform:translateX(-10px);transition:.45s var(--ease)}
   .cap:hover .go{opacity:1;transform:none}
 
+  /* ---------- CANNABIS FACILITIES ---------- */
+  .canna{border-top:1px solid var(--line-soft)}
+  .canna-head{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(36px,6vw,96px);align-items:end;margin-bottom:clamp(44px,6vw,80px)}
+  .canna-head h2{font-size:clamp(2rem,3.8vw,3.3rem);font-weight:300;max-width:17ch}
+  .canna-head h2 em{font-style:italic;color:var(--accent-2)}
+  .canna-head .lede{color:var(--muted);font-weight:300;font-size:1.04rem;max-width:56ch;margin-top:24px}
+  .deadline{background:var(--surface);border:1px solid var(--line);padding:clamp(26px,3vw,40px);position:relative}
+  .deadline::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+  .deadline .when{font-family:'Marcellus',serif;font-size:clamp(1.6rem,2.4vw,2.1rem);color:#fff;line-height:1.15;margin:12px 0 14px}
+  .deadline p{color:var(--muted);font-size:.93rem;font-weight:300}
+  .deadline p strong{color:var(--text);font-weight:500}
+  .deadline .or{display:flex;align-items:center;gap:14px;margin:14px 0;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+  .deadline .or::before,.deadline .or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .deadline .btn{margin-top:26px}
+  .canna-body{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:start}
+  .canna-media{position:relative;overflow:hidden;border:1px solid var(--line-soft);background:#0c0b09;aspect-ratio:8/7;position:sticky;top:110px}
+  .canna-media img{width:100%;height:100%;object-fit:cover}
+  .canna-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 22px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);background:linear-gradient(180deg,transparent,rgba(8,8,6,.85))}
+  .help h3{font-size:clamp(1.6rem,2.4vw,2.1rem);font-weight:300;color:#fff;margin:.3em 0 .9em}
+  .help-list{list-style:none;border-top:1px solid var(--line)}
+  .help-list li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .help-list .num{font-family:'Marcellus',serif;color:var(--accent);font-size:1.05rem;padding-top:2px}
+  .help-list h4{font-family:'Marcellus',serif;font-weight:400;font-size:1.22rem;color:#fff;margin-bottom:6px}
+  .help-list p{font-size:.93rem;color:var(--muted);font-weight:300}
+  .road{margin-top:clamp(60px,8vw,110px)}
+  .road-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+  .road-head h3{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:300;color:#fff}
+  .road-head p{color:var(--muted);font-size:.9rem;font-weight:300;max-width:44ch}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;border-top:1px solid var(--line)}
+  .steps li{padding:26px 22px 8px 0;position:relative}
+  .steps li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--accent)}
+  .steps li.now::before{background:var(--accent);box-shadow:0 0 0 5px rgba(197,169,119,.18)}
+  .steps .yr{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+  .steps h4{font-family:'Marcellus',serif;font-weight:400;font-size:1.15rem;color:#fff;margin-bottom:8px;line-height:1.25}
+  .steps p{font-size:.86rem;color:var(--muted);font-weight:300}
+  .faq{margin-top:clamp(60px,8vw,110px);display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(30px,5vw,80px)}
+  .faq h3{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:300;color:#fff}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq details:first-child{border-top:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:'Marcellus',serif;font-size:1.15rem;color:#fff}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent);font-family:'Inter',sans-serif;font-weight:300;font-size:1.4rem;line-height:1;transition:transform .35s var(--ease)}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{color:var(--muted);font-size:.93rem;font-weight:300;padding:0 0 22px;max-width:62ch}
+  .fineprint{margin-top:44px;font-size:.76rem;color:var(--muted);opacity:.8;max-width:90ch;font-weight:300}
+  .fineprint a{border-bottom:1px solid var(--line)}
+  .fineprint a:hover{color:var(--accent-2)}
+
   /* ---------- APPROACH ---------- */
   .approach{position:relative;overflow:hidden}
   .approach .bg{position:absolute;inset:-12% 0 0 0;background:#0c0b09 center/cover no-repeat;will-change:transform}
@@ -229,6 +289,9 @@
     .intro-grid{grid-template-columns:1fr;gap:36px}
     .cap{grid-template-columns:36px 1fr;row-gap:6px}.cap p{grid-column:2}.cap .go{display:none}
     .foot-top{grid-template-columns:1fr 1fr}.foot-brand-col{grid-column:1/-1}
+    .canna-head,.canna-body,.faq{grid-template-columns:1fr}
+    .canna-media{position:relative;top:0}
+    .steps{grid-template-columns:repeat(2,1fr);row-gap:10px}
   }
   @media(max-width:860px){
     nav.main{display:none}.burger{display:flex}
@@ -240,6 +303,9 @@
     .hero h1{font-size:clamp(2.5rem,9.5vw,3.4rem)}
     .hero-actions{width:100%}.btn{flex:1;justify-content:center}
     .foot-top{grid-template-columns:1fr}.feature-meta{gap:24px}
+    .steps{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);padding-left:22px}
+    .steps li{padding:0 0 26px}
+    .steps li::before{top:4px;left:-27px}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none !important;transition-duration:.001s !important}
@@ -412,7 +478,106 @@
         <span class="num serif">05</span><h3 class="serif">Scan to BIM</h3>
         <p>Laser scanning and AI-powered 3D models for accurate as-built documentation.</p><span class="go">→</span>
       </a>
+      <a class="cap reveal" href="#cannabis">
+        <span class="num serif">06</span><h3 class="serif">Cannabis Facilities &amp; Permitting</h3>
+        <p>Architectural plans, LADBS plan check and agency coordination for DCR license renewal in Los Angeles.</p><span class="go">→</span>
+      </a>
     </div>
+  </div>
+</section>
+
+<!-- CANNABIS FACILITY ARCHITECTURE & PERMITTING -->
+<section class="canna pad-y" id="cannabis" aria-labelledby="canna-title">
+  <div class="wrap">
+
+    <div class="canna-head">
+      <div class="reveal">
+        <div class="eyebrow"><span class="label">New Service · Cannabis Facilities</span></div>
+        <h2 class="serif" id="canna-title">Cannabis facility architecture &amp; <em>permitting</em> in Los Angeles.</h2>
+        <p class="lede">The City of Los Angeles Department of Cannabis Regulation (DCR) now ties license renewal to building-permit milestones. Every licensed cannabis business must reach a DCR Operating Permit by January&nbsp;1, 2031. Alimo Architects is a licensed California architecture firm. We help dispensaries, delivery operators, cultivators, manufacturers and distributors assess their existing premises, prepare LADBS-ready plans, and move through each renewal cycle on time.</p>
+      </div>
+      <aside class="deadline reveal d1" aria-label="2027 renewal requirement">
+        <span class="label">2027 DCR Renewal Period</span>
+        <div class="when">September&nbsp;1 – November&nbsp;2, 2026</div>
+        <p>On the <strong>LIC-4025-FORM</strong> attestation, each applicant and licensee must show one of the following for the premises tied to its DCR Record Number:</p>
+        <p style="margin-top:12px"><strong>A licensed California architect or engineer</strong> retained to prepare the building plans (name and license&nbsp;#)</p>
+        <div class="or">or</div>
+        <p><strong>An LADBS building permit application number</strong> for plans already submitted to plan check.</p>
+        <a href="https://www.alimoarchitects.com/contact" class="btn btn-solid mag">Retain an Architect</a>
+      </aside>
+    </div>
+
+    <div class="canna-body">
+      <figure class="canna-media reveal">
+        <img src="assets/cannabis-dispensary-interior.jpg" alt="Modern cannabis dispensary interior in wood and marble with display casework and service counters — cannabis facility architecture in Los Angeles" loading="lazy" width="1600" height="1067">
+      </figure>
+
+      <div class="help reveal d1">
+        <span class="label">How We Help</span>
+        <h3 class="serif">From your LIC-4025 attestation to a Certificate of Occupancy.</h3>
+        <ol class="help-list">
+          <li><span class="num">01</span><div>
+            <h4>Architect of record for your renewal</h4>
+            <p>Once you retain us, we give you the architect's name and California license number for your LIC-4025-FORM. We also provide a retention letter for your records.</p></div></li>
+          <li><span class="num">02</span><div>
+            <h4>Existing facility assessment</h4>
+            <p>We survey the site and document as-built conditions (including Scan&nbsp;to&nbsp;BIM). We review permit history, zoning and change of use, then flag work that could affect LADBS approval.</p></div></li>
+          <li><span class="num">03</span><div>
+            <h4>Architectural plans &amp; LADBS plan check</h4>
+            <p>We prepare building plans and tenant improvement drawings for your dispensary, cultivation, manufacturing or distribution space. We submit them with your DCR Referral for LADBS Plan Check (INT-4001-FORM) and answer plan check corrections.</p></div></li>
+          <li><span class="num">04</span><div>
+            <h4>Accessibility &amp; building-code compliance</h4>
+            <p>We design to California Building Code requirements, including CBC Chapter 11B accessibility: accessible routes, restrooms, counters and parking. We also address occupancy, exiting, fire and life-safety and security layout.</p></div></li>
+          <li><span class="num">05</span><div>
+            <h4>Engineering &amp; agency coordination</h4>
+            <p>We coordinate the structural, MEP and fire engineers. We track every clearance on your LADBS Clearance Summary Worksheet (CSW), including LAFD, LA Sanitation, LADWP, Bureau of Engineering and LA County Public Health.</p></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="road reveal">
+      <div class="road-head">
+        <div>
+          <div class="eyebrow"><span class="label">DCR Renewal Milestones</span></div>
+          <h3 class="serif">The road to a DCR Operating Permit.</h3>
+        </div>
+        <p>These milestones come from DCR Regulation No.&nbsp;5(A)(8–9). LADBS says its first review of plans can take 6–12 weeks, so starting early matters.</p>
+      </div>
+      <ol class="steps">
+        <li class="now"><span class="yr">2027 Renewal · Fall 2026</span><h4>Retain an architect or engineer</h4><p>Or get an LADBS building permit application number.</p></li>
+        <li><span class="yr">2028 Renewal · Fall 2027</span><h4>Plans submitted + CSW</h4><p>Have a building permit application number and a Clearance Summary Worksheet from LADBS.</p></li>
+        <li><span class="yr">2029 Renewal · Fall 2028</span><h4>Building permit + Public Health Permit</h4><p>Have an LADBS building permit and an LA County Public Health Permit for each activity.</p></li>
+        <li><span class="yr">2030 Renewal · Fall 2029</span><h4>Certificate of Occupancy</h4><p>Or a passed LADBS final inspection, if LADBS doesn't require a C of O.</p></li>
+        <li><span class="yr">By Jan 1, 2031</span><h4>DCR Operating Permit</h4><p>Pass the DCR Final Inspection. Businesses can't operate without an Operating Permit.</p></li>
+      </ol>
+    </div>
+
+    <div class="faq reveal">
+      <div>
+        <div class="eyebrow"><span class="label">Questions</span></div>
+        <h3 class="serif">Cannabis permitting, answered.</h3>
+      </div>
+      <div>
+        <details>
+          <summary>Who has to meet the 2027 renewal requirement?</summary>
+          <p>Every cannabis applicant and licensee renewing with the Los Angeles Department of Cannabis Regulation. The requirement applies to the business premises tied to its DCR Record Number, whether that's a storefront retailer, delivery, cultivation, manufacturing, distribution or microbusiness location.</p>
+        </details>
+        <details>
+          <summary>What do I put on the LIC-4025-FORM?</summary>
+          <p>For the 2027 renewal cycle, you give either (a) your LADBS building permit application number or (b) the name and license number of the California-licensed architect or engineer you've retained. The license must be active on the Department of Consumer Affairs (DCA) website. When you retain Alimo Architects, we provide both details for option (b).</p>
+        </details>
+        <details>
+          <summary>What if I haven't hired an architect yet?</summary>
+          <p>The form includes a one-time extension request for this milestone. DCR is clear that it doesn't extend any later deadline. Your plans still need to reach LADBS early enough to get a Clearance Summary Worksheet by September&nbsp;1, 2027. Retaining an architect now keeps that timeline in reach.</p>
+        </details>
+        <details>
+          <summary>Can you work with my existing building?</summary>
+          <p>Yes. Most cannabis businesses already operate in existing commercial or industrial buildings. We start by documenting what's there. Then we design the tenant improvements needed for building, fire and accessibility code compliance and plan how to get them permitted and built.</p>
+        </details>
+      </div>
+    </div>
+
+    <p class="fineprint">Requirements summarized from the City of Los Angeles Department of Cannabis Regulation LIC-4025-FORM (rev. 05.27.2026) and DCR's 2026 news bulletins. They may change. Confirm your specific obligations with <a href="https://cannabis.lacity.gov" target="_blank" rel="noopener">DCR</a>. This page is general information, not legal advice.</p>
   </div>
 </section>
 
@@ -471,7 +636,7 @@
         <p>A Los Angeles architecture studio designing residential, multifamily and commercial spaces with purpose and precision.</p>
       </div>
       <div class="foot-col"><h5>Explore</h5>
-        <a href="#work">Projects</a><a href="#capabilities">Services</a><a href="#about">About</a><a href="#insights">Insights</a>
+        <a href="#work">Projects</a><a href="#capabilities">Services</a><a href="#cannabis">Cannabis Permitting</a><a href="#about">About</a><a href="#insights">Insights</a>
       </div>
       <div class="foot-col"><h5>Connect</h5>
         <a href="https://www.alimoarchitects.com/contact">Contact</a>
